@@ -52,3 +52,10 @@ h1 {
   transform: scale(1.2);
   color: #f2f2f2;
 }
+
+.socials .icon-svg {
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+  vertical-align: -0.125em;
+}

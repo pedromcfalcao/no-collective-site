@@ -5,16 +5,20 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: 'Orbitron', sans-serif;
-  background: url('images/no-collective-bg.png') no-repeat center center/cover;
-  height: 100vh;
+  background: #000 url('images/no-collective-bg.png') no-repeat center center/cover fixed;
+  min-height: 100vh;
   color: white;
   position: relative;
 }
 
 .overlay {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   height: 100%;
@@ -58,4 +62,100 @@ h1 {
   height: 1em;
   fill: currentColor;
   vertical-align: -0.125em;
+}
+
+.scroll-cue {
+  position: absolute;
+  bottom: 2rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.25rem;
+  text-decoration: none;
+  animation: bob 2s ease-in-out infinite;
+}
+
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(6px); }
+}
+
+/* Shows */
+.shows {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 4rem 16px 5rem;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.shows h2 {
+  font-size: 1.5rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.show-list {
+  list-style: none;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+.show-list li {
+  display: grid;
+  grid-template-columns: 4rem 1fr auto;
+  gap: 1rem;
+  align-items: baseline;
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.show-list .year {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.show-list .venue {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.show-list .venue em {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-style: normal;
+  font-size: 0.85rem;
+  letter-spacing: 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.show-list .place {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: right;
+}
+
+.booking {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.booking a {
+  color: white;
+}
+
+@media (max-width: 560px) {
+  h1 { font-size: 2.2rem; }
+  .show-list li {
+    grid-template-columns: 3rem 1fr;
+    row-gap: 0.25rem;
+  }
+  .show-list .place {
+    grid-column: 2;
+    text-align: left;
+  }
 }
